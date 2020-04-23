@@ -1,33 +1,4 @@
 class _Node {
-  constructor(data, next) {
-    this.data = data;
-    this.next = next;
-  }
-}
-
-class Stack {
-  constructor() {
-    this.top = null;
-  }
-
-  push(data) {
-    if (this.top === null) {
-      this.top = new _Node(data, null);
-      return this.top;
-    }
-
-    const node = new _Node(data, this.top);
-    this.top = node;
-  }
-
-  pop() {
-    const node = this.top;
-    this.top = node.next;
-    return node.data;
-  }
-}
-
-class _NodeQ {
   constructor(value) {
     this.value = value;
     this.next = null;
@@ -41,7 +12,7 @@ class Queue {
   }
 
   enqueue(data) {
-    const node = new _NodeQ(data);
+    const node = new _Node(data);
 
     if(this.first === null) {
       this.first = node
@@ -67,5 +38,6 @@ class Queue {
 
     return node.value;
   }
-
 }
+
+module.exports = Queue;
